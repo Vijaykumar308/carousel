@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carousel</title>
+	<style>
+		*{margin: 0; padding: 0; box-sizing: border-box;}
+		body{
+			font-size: 62.5%;
+			background: #df123d;
+			/*overflow-x: hidden;*/
+		}
+		.Carousel_cantainer{
+			width: 100vw;
+			height: 70vh;
+			position: absolute;
+			top: 17%;
+			overflow: hidden;
+			background: yellow;
+		}
+		.carousel_slider{
+			display: flex;
+			/*animation: slider 5s linear infinite;*/
+			/*overflow: hidden;*/
+			transition: all 1s ease;
+		}
+	
+		.imgstyle img{
+			width: 100vw;
+			height: 70vh;
+		}
+		.btns{
+			position: absolute;
+			top: 50%;
+			z-index: 1;
+		}
+		.btns button{
+			width: 70px;
+			outline: none;border: none;
+			font-size: 31px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="PreviousBtn btns" style="position: absolute; left: 10px;">
+		<button id="PreviousBtnId" onclick="ButtonClicked('Previous');"> < </button>
+	</div>
+	<div class="Carousel_cantainer">
+		<div class="carousel_slider">
+			<div class="firstimg imgstyle">
+				<img src="firstimg.jpg" alt="firstimg"/>
+			</div>
+
+			<div class="secondimg imgstyle">
+				<img src="secondimg.jpg" alt="secondimg"/>
+			</div>
+
+			<div class="thridimg imgstyle">
+				<img src="thridimg.jpg" alt="thridimg"/>
+			</div>
+		</div>
+	</div>
+		<div class="nextBtn btns" style="position:absolute;  right: 10px;">
+			<button id="NextBtnId" onclick="ButtonClicked('Next');"> > </button>
+		</div>
+	<script>
+		 var val=0;
+		function ButtonClicked(btnClicked){
+			console.log(btnClicked);
+              if(btnClicked =='Previous'){
+              	if(val == 0){
+              		val = 0;
+              	}
+              	else{
+              	 val = val + 1366;
+              	}
+              }
+
+              if(btnClicked=='Next'){
+              	if(!(val == -2732)){
+              	 	val = val - 1366;		
+              	}
+              }
+			/*let b=*/document.querySelector('.carousel_slider').style.transform =  "translateX(" + val + "px)";
+			// console.log(b);
+		}
+	</script>
+</body>
+</html>
